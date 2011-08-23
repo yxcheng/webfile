@@ -1,0 +1,11 @@
+d = new dTree('d');
+		d.add(0,-1,"Welcome");
+		<#list root.list as file>
+		<#if file.url?exists>
+		d.add("${file.id}","${file.pid}","${file.filename}","${file.url}",null,null,"${file.icon}");
+		<#else>
+		d.add("${file.id}","${file.pid}","${file.filename}",null,null,null,"${file.icon}");
+		</#if>
+       </#list>
+       
+       		document.write(d);	 

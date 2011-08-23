@@ -1,0 +1,34 @@
+FreeMarker教程 
+1、快速入门
+
+（1）模板 + 数据模型 = 输出
+
+l FreeMarker基于设计者和程序员是具有不同专业技能的不同个体的观念
+
+l 他们是分工劳动的：设计者专注于表示——创建HTML文件、图片、Web页面的其它可视化方面；程序员创建系统，生成设计页面要显示的数据
+
+l 经常会遇到的问题是：在Web页面（或其它类型的文档）中显示的信息在设计页面时是无效的，是基于动态数据的
+
+l 在这里，你可以在HTML（或其它要输出的文本）中加入一些特定指令，FreeMarker会在输出页面给最终用户时，用适当的数据替代这些代码
+
+l 下面是一个例子：
+
+<html>
+<head>
+<title>Welcome!</title>
+</head>
+<body>
+<h1>Welcome ${user}!</h1>
+<p>Our latest product:
+<a href="${latestProduct.url}">${latestProduct.name}</a>!
+</body>
+</html> 
+l 这个例子是在简单的HTML中加入了一些由${…}包围的特定代码，这些特定代码是FreeMarker的指令，而包含FreeMarker的指令的文件就称为模板（Template）
+
+l 至于user、latestProduct.url和latestProduct.name来自于数据模型（data model）
+
+l 数据模型由程序员编程来创建，向模板提供变化的信息，这些信息来自于数据库、文件，甚至于在程序中直接生成
+
+l 模板设计者不关心数据从那儿来，只知道使用已经建立的数据模型
+
+哈哈哈哈哈

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN//EN" "http://www.springframework.org/dtd/spring-beans.dtd">
+<beans>
+
+    <!--缺省映射处理器，不需要明确声明，但声明后就非常清楚使用的是哪个映射处理器  -->   
+   <bean id="beanNameUrlMapping"
+    class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping">
+    </bean>
+    
+    
+   
+   
+    
+
+    <!-- 这里的name属性有两个职责，既定义Bean的名字，也定义需要这个控制器处理的URL样式 -->
+    <bean name="/hello.do" class="com.succez.chengyx.webfile.controller.IndexController">
+    </bean>
+    <bean name="/showfile.do" class="com.succez.chengyx.webfile.controller.FileController">
+    </bean>
+     <bean name="/edit.do" class="com.succez.chengyx.webfile.controller.EditController">
+    </bean>
+    <bean name="/save.do" class="com.succez.chengyx.webfile.controller.SaveController">
+    </bean>
+    <bean name="/showimg.do" class="com.succez.chengyx.webfile.controller.ImgController">
+    </bean>
+    <bean name="/download.do" class="com.succez.chengyx.webfile.controller.DownloadController">
+    </bean>
+    <bean name="/upload.do" class="com.succez.chengyx.webfile.controller.UploadController">
+    </bean>
+ 
+<!--    <bean id="viewResolver"
+    class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+       <property name="prefix" value="/WEB-INF/jsp/" />
+       <property name="suffix" value=".jsp" />
+  </bean>  -->
+  
+  <!-- 用于上传文件 -->
+    <bean id="multipartResolver"  
+       class="org.springframework.web.multipart.commons.CommonsMultipartResolver">  
+       <!-- 设置上传文件的最大尺寸为1MB -->  
+       <property name="maxUploadSize">  
+           <value>1048576</value>  
+       </property> 
+    </bean>  
+
+
+    
+
+  
+  <!-- freemarker页面解析器--> 
+  <bean id="viewResolver" class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
+	  <property name="suffix">
+	    <value>.html</value>
+	  </property>
+      <property name="viewClass">
+      <value>org.springframework.web.servlet.view.freemarker.FreeMarkerView</value>
+      </property>
+     <property name="contentType">
+      <value>text/html;charset=UTF-8</value>
+      </property>
+  </bean>
+  
+  <bean id="freemarkerConfigurer" class="org.springframework.web.servlet.view.freemarker.FreeMarkerConfigurer">
+	  <property name="templateLoaderPath">
+	    <value>/freemarker/</value>
+	  </property>
+	  <property name="freemarkerSettings"><!-- 如果模板不经常更新，此属性设置更新延迟时间 -->
+	    <props>
+	      <prop key="template_update_delay">3600</prop>
+	      <prop key="defaultEncoding">utf-8</prop><!--模板的编码格式 -->     
+		  <prop key="datetime_format">yyyy-MM-dd</prop>
+		  <prop key="number_format">0.######</prop>
+		 </props>
+	  </property>
+  </bean>
+  
+ 
+
+  
+
+   
+</beans>
+

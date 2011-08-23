@@ -1,0 +1,106 @@
+#frame{
+	text-align:center;
+	width:98%;
+	height:1000px;
+	position:relative;
+	top:1%;
+    left:1%;
+	bottom:2%;
+}
+#head{
+	background-color: #DCDCDC;
+	height: 70px;
+}
+
+#headinfo {
+	position: relative;
+	top:20%;
+}
+#word{
+	text-align:center;
+	font-family:"Times New Roman",Georgia,Serif;
+	font-size: 200%;
+}
+
+
+#tree{
+	background-color: #D3D3D3;
+	float:left;
+	width: 20%;
+	height: 700px;
+	border-bottom-color: black;
+}
+#upload{
+	height:230px;
+    background-color: #8FBC8F;
+}
+#up{
+	text-align: center;
+	position: relative;
+	top:5%;
+}
+#upform{
+	position: relative;
+	left:10%;
+	top:15%;
+}
+#file{
+    float:left;
+	width: 80%;
+	height: 700px;
+	background-color: white;
+
+}
+#filehead{
+	height: 5%;
+}
+.name{
+	text-align:center;
+	font-family:"Times New Roman",Georgia,Serif;
+	font-size: 150%;
+}
+img{
+	max-height: 100%;
+	max-width: 100%;
+}
+#content{
+	position:relative;
+	left:5%;
+	width:95%;
+	height:80%;
+	overflow: scroll;
+}
+#pic{
+	height:80%;
+	background-color: #87CEEB;
+}
+#oper{
+	bottom:0px;
+	height:10%;
+	width:100%;
+	background-color: #9ACD32;
+}
+
+#form{
+	position: relative;
+	top:40%;
+	left:50%;
+	width: 50%;
+}
+#button{
+	position: relative;
+	top:5%;
+	width: 70px;
+	left:20%;
+}
+
+#copyright{
+	text-align:center;
+	float:left;
+	width:100%;
+	height: 50px;
+	background: #DCDCDC;
+}
+
+
+

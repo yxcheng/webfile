@@ -1,0 +1,74 @@
+#head{
+	position: relative;
+	left:10%;
+	width:80%;
+	background-color: #DCDCDC;
+	height: 100px;
+}
+
+#headinfo {
+	position: relative;
+	top:20%;
+}
+#word{
+	text-align:center;
+	font-family:"Times New Roman",Georgia,Serif;
+	font-size: 200%;
+}
+#edit{
+	position: relative;
+	left:10%;
+	width:80%;
+	height:800px;
+	background-color: #F5F5F5;
+}
+#filehead{
+	height: 5%;
+}
+.name{
+	text-align:center;
+	font-family:"Times New Roman",Georgia,Serif;
+	font-size: 150%;
+}
+#editarea{
+	height: 720px;
+	background-color: #B0C4DE;
+}
+#form{
+	height: 100%;
+	width:100%;
+}
+#input{
+	position: relative;
+	top:5%;
+	witdh:30%;
+	height:85%;
+}
+#text{
+	position: relative;
+	left:10%;
+}
+#submit{
+	background-color:#9ACD32;
+	height:105px;
+}
+#save{
+	position: relative;
+	top:10%;
+	left:70%;
+	width: 70px;
+}
+#cancel{
+	position: relative;
+	top:10%;
+	left:70%;
+	width: 70px;
+}
+#copyright{
+	text-align:center;
+	position: relative;
+	left:10%;
+	width:80%;
+	height: 50px;
+	background: #DCDCDC;
+}

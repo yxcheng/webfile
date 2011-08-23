@@ -1,0 +1,119 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>   
+        <title>网页文件浏览系统</title> 
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8">   
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<link rel="stylesheet" type="text/css" href="css/dtree.css">
+<script type="text/javascript" src="js/mydtree.js"></script>
+<script language="javascript">
+function   edit(){ 
+/* 	alert("edit"); */
+    document.myform.method= "post";     
+    document.myform.action= "edit.do";     
+    document.myform.submit();     
+    return   true; 
+} 
+
+function   download(){ 
+/* 	alert("download"); */
+    document.myform.method= "post"; 
+    document.myform.action= "download.do"; 
+    document.myform.submit(); 
+    return   true; 
+} 
+
+function  check(){
+	
+	document.uploadform.submit();
+	return true;
+}
+</script> 
+</head>  
+<body bgcolor="#ADD8E6">
+    <div id="head">
+       <div id="headinfo">
+          <p id="word">网页文件浏览系统  
+       </div>
+    </div>
+    <div id="tree">
+       <div id="dtree">
+       <p><a href="javascript: d.openAll();">展开</a> | <a href="javascript: d.closeAll();">收缩</a></p>
+	   <script language="javascript">
+	   d = new dTree('d');
+		d.add(0,-1,"Welcome");
+	    <#list root.list as file>
+		<#if file.url?exists>
+		   <#if file.icon?exists>
+		   d.add("${file.id}","${file.pid}","${file.filename}","${file.url}",null,null,"${file.icon}");
+		   <#else>
+		   d.add("${file.id}","${file.pid}","${file.filename}","${file.url}");
+		   </#if>
+		<#else>	  
+		   <#if file.icon?exists>
+		   d.add("${file.id}","${file.pid}","${file.filename}",null,null,null,"${file.icon}");
+		   <#else>
+		   d.add("${file.id}","${file.pid}","${file.filename}");
+		   </#if>
+		</#if>
+      </#list> 
+      
+       document.write(d);	 
+
+	   </script> 
+	   </div>
+	   <div id="upload">
+	     <div id="up" >上传文件</div>
+	     <div id="upform">
+	     <form  enctype='multipart/form-data' name="uploadform" method="post" action="upload.do" >  
+            <input type="text" name="filepath" value="输入存放路径" /> 
+            <p><input type="file" name="uploadFile" /> 
+            <p><input type="button" value="提交" onclick="check()" />
+         </form>
+         </div>
+         </div>
+       </div>
+       <div id="file">
+       <div id="filehead">
+        <#if root.filename??>
+          <p class="name">${root.filename}</p>
+          <#else>
+          <p class="name">Welcome here</p>
+        </#if>
+       </div>
+       <hr/>
+       <#if root.content??>
+            <div id="content">
+             ${root.content}
+            </div>
+            <div id="oper">
+               <form  id="form" name="myform" method="post">
+                  <input type="hidden" value="${root.filename}" name="name"></input>
+                  <input type="hidden" value="${root.editContent}" name="editContent"></input>
+                  <input type="hidden" value="${root.path}" name="path"></input>
+                  <input type="button" value="编辑" id="button" onclick="edit()">
+                  <input type="button" value="下载" id="button" onclick="download()">
+               </form>
+            </div>
+        <#else>
+          <#if root.img??>
+            <div id="pic">
+            <img alt="sorry" src="${root.img}" >
+            </div>
+            <div id="oper">
+               <form  id="form" name="myform" method="post">
+                  <input type="hidden" value="${root.filename}" name="name"></input>
+                  <input type="hidden" value="${root.path}" name="path"></input>
+                  <input type="button" value="下载" id="button" onclick="download()">
+               </form>
+            </div>
+          <#else>
+          <img alt="sorry" src="resources/img/welcome.jpg"  >
+          </#if>
+        </#if>
+        
+    </div>
+    <div id="copyright">Copyright ©成亚雄. All Rights Reserved. 京ICP证080047号 </div>
+</body>
+</html>
